@@ -5,83 +5,100 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="iloactemp.backgroundnote">
-<body>
+      <metal:css fill-slot="style_slot">
+      <style>
+      #noteview h1 {background: lightblue;
+                    color: #111;
+                    padding-left: 10px;
+                    margin-bottom: 5px;}      
 
-<tal:comment tal:condition="nothing">
-    This is a sample view template. It will not be used for rendering the
-    content unless activated by creation of a view class with a matching name.
-    
-    Note that we're using Plone 4 macros. Replace them with Plone 3 macros
-    if needed.
-</tal:comment>
+                h3 {text-decoration: underline;}
+      p.comment { color: red; }
+      </style>
+      </metal:css>
+
+<body>
 
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
+
+<div id="noteview" tal:define="contentview nocall:context/view;
+                dummy contentview/update">
 
   <div>
   <h3></h3>
   <h1>A. ORGANIZATIONAL PROFILE</h1>
   <h3>1. Basic organizational information</h3>
-  <p tal:content="structure context/organization_information/output"></p>
-  <p tal:content="context/organization_comment"></p>
+  <p tal:condition="context/organization_information" tal:content="structure context/organization_information/output"></p>
+  <p class="comment" tal:content="context/organization_comment"></p>
   <h3>2. Source of regulation</h3>
-  <p tal:content="structure context/regulation_source/output"></p>
-  <p tal:content="context/regulation_comment"></p>
+  <p tal:condition="context/regulation_source" tal:content="structure context/regulation_source/output"></p>
+  <p class="comment" tal:content="context/regulation_comment"></p>
   <h3>3. Membership</h3>
-  <p tal:content="structure context/membership/output"></p>
-  <p tal:content="context/membership_comment"></p>
+  <p tal:condition="context/membership" tal:content="structure context/membership/output"></p>
+  <p class="comment" tal:content="context/membership_comment"></p>
   <h3>4. Structure</h3>
-  <p tal:content="structure context/structure/output"></p>
-  <p tal:content="context/structure_comment"></p>
+  <p tal:condition="context/structure" tal:content="structure context/structure/output"></p>
+  <p class="comment" tal:content="context/structure_comment"></p>
   <h3>5. Involvement in the ILO governance and supervisory structures</h3>
-  <p tal:content="structure context/involvement_ilo/output"></p>
-  <p tal:content="context/involvement_ilo_comment"></p>
+  <p tal:condition="context/involvement_ilo" tal:content="structure context/involvement_ilo/output"></p>
+  <p class="comment" tal:content="context/involvement_ilo_comment"></p>
   <h3>6. Involvement in the other international bodies</h3>
-  <p tal:content="structure context/involvement_other/output"></p>
-  <p tal:content="context/involvement_other_comment"></p>
+  <p tal:condition="context/involvement_other" tal:content="structure context/involvement_other/output"></p>
+  <p class="comment" tal:content="context/involvement_other_comment"></p>
   </div>
-
 
 
   <div>
   <h1>B. POLICY ENVIRONMENT AND PRIORITIES </h1>
   <h3>1. Overview of country context</h3>
-  <p tal:content="structure context/overview_country/output"></p>
-  <p tal:content="context/overview_country_comment"></p>
+  <p tal:condition="context/overview_country" tal:content="structure context/overview_country/output"></p>
+  <p class="comment" tal:content="context/overview_country_comment"></p>
   <h3>2. Overview of the overall national business agenda</h3>
-  <p tal:content="structure context/overview_business/output"></p>
-  <p tal:content="context/overview_business_comment"></p>
+  <p tal:condition="context/overview_business" tal:content="structure context/overview_business/output"></p>
+  <p class="comment" tal:content="context/overview_business_comment"></p>
   <h3>3. Key policy priorities of the EO</h3>
-  <p tal:content="structure context/key_policies/output"></p>
-  <p tal:content="context/key_policies_comment"></p>
+  <p tal:condition="context/key_policies" tal:content="structure context/key_policies/output"></p>
+  <p class="comment" tal:content="context/key_policies_comment"></p>
   <h3>4. Policy dialogue modalities</h3>
-  <p tal:content="structure context/policy_dialogue/output"></p>
-  <p tal:content="context/policy_dialogue_comment"></p>
+  <p tal:condition="context/policy_dialogue" tal:content="structure context/policy_dialogue/output"></p>
+  <p class="comment" tal:content="context/policy_dialogue_comment"></p>
   <h3>5. Key policy documents/Sources of information and documentation</h3>
-  <p tal:content="structure context/key_documents/output"></p>
+  <p tal:condition="context/key_documents"  tal:content="structure context/key_documents/output"></p>
+
+  <p>
+  <ul>
+      <li tal:condition="context/attachment_1" tal:content="structure
+      contentview/w/attachment_1/render"></li>
+      <li tal:condition="context/attachment_2" tal:content="structure contentview/w/attachment_2/render"></li>
+      <li tal:condition="context/attachment_3" tal:content="structure contentview/w/attachment_3/render"></li>
+      <li tal:condition="context/attachment_4" tal:content="structure contentview/w/attachment_4/render"></li>
+      <li tal:condition="context/attachment_5" tal:content="structure contentview/w/attachment_5/render"></li>
+  </ul>
   </div>
+
 
 
   <div>
   <h1>C. ORGANIZATIONAL ANALYSIS</h1>
   <h3>1. Vision, objectives and mission statement</h3>
-  <p tal:content="structure context/vision/output"></p>
-  <p tal:content="context/vision_comment"></p>
+  <p tal:condition="context/vision" tal:content="structure context/vision/output"></p>
+  <p class="comment" tal:content="context/vision_comment"></p>
   <h3>2. Assessment of membership</h3>
-  <p tal:content="structure context/assessment_membership/output"></p>
-  <p tal:content="context/assessment_membership_comment"></p>
+  <p tal:condition="context/assessment_membership" tal:content="structure context/assessment_membership/output"></p>
+  <p class="comment" tal:content="context/assessment_membership_comment"></p>
   <h3>3. Direct services</h3>
-  <p tal:content="structure context/direct_services/output"></p>
-  <p tal:content="context/direct_services_comment"></p>
+  <p tal:condition="context/direct_services" tal:content="structure context/direct_services/output"></p>
+  <p class="comment" tal:content="context/direct_services_comment"></p>
   <h3>4. Advocacy services</h3>
-  <p tal:content="structure context/advocacy_services/output"></p>
-  <p tal:content="context/advocy_services_comment"></p>
+  <p tal:condition="context/advocacy_services" tal:content="structure context/advocacy_services/output"></p>
+  <p class="comment" tal:content="context/advocacy_services_comment"></p>
   <h3>5. Income</h3>
-  <p tal:content="structure context/income/output"></p>
-  <p tal:content="context/income_comment"></p>
+  <p tal:condition="context/income" tal:content="structure context/income/output"></p>
+  <p class="comment" tal:content="context/income_comment"></p>
   <h3>6. Relations with the government and trade unions</h3>
-  <p tal:content="structure context/relations"></p>
-  <p tal:content="context/relations_comment"></p>
+  <p tal:condition="context/relations" tal:content="structure context/relations"></p>
+  <p class="comment" tal:content="context/relations_comment"></p>
   </div>
 
 
@@ -89,48 +106,47 @@
   <h1>D. RELATIONS WITH ILO, UN, MULTILATERAL AND BILATERAL DEVELOPMENT
       COOPERATION AGENCIES</h1>
   <h3>1. Engagement in the DWCP</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/engagement_dwcp/output"></p>
+  <p tal:condition="context/engagement_dwcp" tal:content="structure context/engagement_dwcp/output"></p>
+  <p class="comment" tal:content="context/engagement_dwcp_comment"></p>
   <h3>2. Views on ILO policy in particular field</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/ilo_policy" tal:content="structure context/ilo_policy/output"></p>
+  <p class="comment" tal:content="context/ilo_policy_comment"></p>
   <h3>3. Major results achieved with the ILO support in the last biennium</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/results_ilo_support" tal:content="structure context/results_ilo_support"></p>
+  <p class="comment" tal:content="context/results_ilo_support_comment"></p>
   <h3>4. ILO projects the EO  is involved in</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/ilo_projects" tal:content="structure context/ilo_projects/output"></p>
+  <p class="comment" tal:content="context/ilo_projects_comment"></p>
   <h3>5. Summary of any other international assistance/funding provided by
       donor governments or bilateral development cooperation agencies</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/summary_assistance" tal:content="structure context/summary_assistance/output"></p>
+  <p class="comment" tal:content="context/summary_assistance_comment"></p>
   <h3>6. Recent ACT/EMP activities</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/recent_activities" tal:content="structure context/recent_activities/output"></p>
+  <p class="comment" tal:content="context/recent_activities_comment"></p>
   <h3>7. Involvement in ILO ITC training</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/ITC_training" tal:content="structure context/ITC_training/output"></p>
+  <p class="comment" tal:content="context/ITC_training_comment"></p>
   <h3>8. Involvement in the UNDAF development and implementation</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/UNDAF" tal:content="structure context/UNDAF/output"></p>
+  <p class="comment" tal:content="context/UNDAF_comment"></p>
   </div>
-
-
 
   <div>
   <h1>E. ACTEMP STRATEGY</h1>
   <h3>1. Organizational needs analysis/baseline situation</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
-  <h3>2. Current major issues or objectives that need to be addressed in the EO
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
-  and how do these issues or objectives align with the EO’s
-  organizational/strategic plans</h3>
+  <p tal:condition="context/org_needs" tal:content="structure context/org_needs/output"></p>
+  <p class="comment" tal:content="context/org_needs_comment"></p>
+  <h3>2. Current major issues or objectives that need to be addressed in
+      the EO and how do these issues or objectives align with the EO’s
+  organizational/strategic plans </h3>
+  <p tal:condition="context/major_issues" tal:content="structure context/major_issues/output"></p>
+  <p class="comment" tal:content="context/major_issues_comment"></p>
   <h3>3. Results intended to be achieved by ACTEMP</h3>
-  <p tal:content="structure context/"></p>
-  <p tal:content="context/"></p>
+  <p tal:condition="context/intended_results" tal:content="structure context/intended_results/output"></p>
+  <p class="comment" tal:content="context/intended_results_comment"></p>
   </div>
+</div>
 
 
   </metal:content-core>
@@ -138,4 +154,3 @@
 
 </body>
 </html>
-
