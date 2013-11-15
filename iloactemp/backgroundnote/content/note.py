@@ -90,6 +90,17 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    structure = RichText(
+            title=u'Structure',
+            required=False
+            )
+
+    structure_comment = schema.Text(
+            title=u'ACT/EMP Comment',
+            required=False,
+            )
+
+
     involvement_ilo = RichText(
             title=u'Involvement in the ILO governance and supervisory '
             'structures',
@@ -240,7 +251,8 @@ class INote(form.Schema, IImageScaleTraversable):
             title=u'Policy dialogue modalities',
             required=False,
             )
-    policy_dialogue = schema.Text(
+
+    policy_dialogue_comment = schema.Text(
             title=u'ACT/EMP Comment',
             required=False,
             )
