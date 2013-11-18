@@ -42,6 +42,7 @@ class INote(form.Schema, IImageScaleTraversable):
             description=u'Used in item listings and search results.',
             default=u'ACT/EMP Background Note & Country Strategy on ')
 
+    dexteritytextindexer.searchable('organization_information')
     organization_information = RichText(
             title=u'Basic organizational information',
             required=False,
@@ -71,6 +72,7 @@ class INote(form.Schema, IImageScaleTraversable):
             title=u'ACT/EMP Comment',
             required=False)
 
+    dexteritytextindexer.searchable('regulation_source')
     regulation_source = RichText(
             title = u'Source of regulation',
             required=False)
@@ -80,6 +82,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False
             )
 
+    dexteritytextindexer.searchable('membership')
     membership = RichText(
             title=u'Membership',
             required=False
@@ -90,6 +93,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('structure')
     structure = RichText(
             title=u'Structure',
             required=False
@@ -101,6 +105,7 @@ class INote(form.Schema, IImageScaleTraversable):
             )
 
 
+    dexteritytextindexer.searchable('involvement_ilo')
     involvement_ilo = RichText(
             title=u'Involvement in the ILO governance and supervisory '
             'structures',
@@ -112,6 +117,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('involvement_other')
     involvement_other = RichText(
             title=u'Involvement in other international bodies',
             required=False,
@@ -122,6 +128,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('overview_country')
     overview_country = RichText(
             title=u'Overview of country context',
             required=False,
@@ -222,6 +229,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('overview_business')
     overview_business = RichText(
             title=u'Overview of the overall national business agenda',
             required=False,
@@ -232,11 +240,13 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('business_representatives')
     business_representatives = RichText(
             title=u'Main Business representatives',
             required=False,
             )
 
+    dexteritytextindexer.searchable('key_policies')
     key_policies = RichText(
             title=u'Key policy priorities of the EO',
             required=False,
@@ -247,6 +257,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('policy_dialogue')
     policy_dialogue = RichText(
             title=u'Policy dialogue modalities',
             required=False,
@@ -257,6 +268,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('key_documents')
     key_documents = RichText(
             title=u'Key policy documents / Sources of information '
                    'and documentation',
@@ -291,6 +303,7 @@ class INote(form.Schema, IImageScaleTraversable):
 
     #Organizational Analysis
 
+    dexteritytextindexer.searchable('vision')
     vision = RichText(
             title=u'Visual, objectives and mission statement',
             required=False,
@@ -301,6 +314,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('assessment_membership')
     assessment_membership = RichText(
             title=u'Assessment of membership',
             required=False,
@@ -311,6 +325,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('direct_services')
     direct_services = RichText(
             title=u'Direct services',
             required=False,
@@ -321,6 +336,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('advocacy_services')
     advocacy_services = RichText(
             title=u'Advocacy Services',
             required=False,
@@ -330,6 +346,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('income')
     income = RichText(
             title=u'Income',
             required=False,
@@ -340,6 +357,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('relations')
     relations = RichText(
             title=u'Relations with the government and trade unions',
             required=False,
@@ -353,6 +371,7 @@ class INote(form.Schema, IImageScaleTraversable):
 
     #D. Relations with ILO, UN, Multilateral and bilateral Development
 
+    dexteritytextindexer.searchable('engagement_dwcp')
     engagement_dwcp = RichText(
             title=u'Engagement in the DWCP',
             required=False,
@@ -362,6 +381,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('ilo_policy')
     ilo_policy = RichText(
             title=u'Views on ILO policy in a particular field',
             required=False,
@@ -371,6 +391,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('results_ilo_support')
     results_ilo_support = RichText(
             title=u'Major results achieved with the ILO support in '
             'the last biennium',
@@ -380,6 +401,7 @@ class INote(form.Schema, IImageScaleTraversable):
             title=u'ACT/EMP Comment',
             required=False,
             )
+    dexteritytextindexer.searchable('ilo_projects')
     ilo_projects = RichText(
             title=u'ILO project the EO is involved in',
             required=False,
@@ -389,6 +411,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('summary_assistance')
     summary_assistance = RichText(
             title=u'Summary of any other international '
             'assistance/funding provided by donor '
@@ -401,6 +424,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('recent_activities')
     recent_activities = RichText(
             title=u'Recent ACT/EMP activities',
             required=False,
@@ -410,6 +434,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('ITC_training')
     ITC_training = RichText(
             title=u'Involvement in ILO ITC training',
             required=False,
@@ -419,6 +444,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('UNDAF')
     UNDAF = RichText(
             title=u'Involvement in the UNDAF development and '
             'implementation',
@@ -431,6 +457,7 @@ class INote(form.Schema, IImageScaleTraversable):
 
     # E. ACTEMP Strategy
 
+    dexteritytextindexer.searchable('org_needs')
     org_needs = RichText(
             title=u'Organizational needs analysis / baseline situation',
             required=False,
@@ -440,6 +467,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('major_issues')
     major_issues = RichText(
             title=u'Current major issues or objectives that need '
             'to be addressed in the EO and how do these issues '
@@ -452,6 +480,7 @@ class INote(form.Schema, IImageScaleTraversable):
             required=False,
             )
 
+    dexteritytextindexer.searchable('intended_results')
     intended_results = RichText(
             title=u'Results intended to be achieved by ACTEMP',
             required=False,
